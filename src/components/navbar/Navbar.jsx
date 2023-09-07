@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import Link from 'next/link'
 import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 import { signOut, useSession } from "next-auth/react";
-
+import { FaBars } from "react-icons/fa";
+import { IoMdClose } from "react-icons/io";
 
 const links =[
     {
@@ -56,7 +57,7 @@ const Navbar =()=>{
                 <div className="flex justify-between items-center gap-5 md:gap-10">
                     <DarkModeToggle />
                     <button className="lg:hidden" onClick={handleToggle}>
-                        {isMenuOpen ? "X" : "Y"}
+                        {isMenuOpen ? <IoMdClose /> : <FaBars />}
                     </button>
                 </div>
             </div>
