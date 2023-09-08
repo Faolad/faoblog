@@ -1,12 +1,14 @@
-
+import styles from './page.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 
 async function getData() {
-  const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-  const res = await fetch(`${apiUrl}/api/posts`, {cache: 'no-store'})
+  const res = await fetch("http://localhost:3000/api/posts", {cache: 'no-store'})
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
  
   if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data')
   }
  
